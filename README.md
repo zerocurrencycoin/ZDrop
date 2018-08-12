@@ -29,7 +29,7 @@ ZDrop uses these APIs:
 
 * [Zero Insight](https://insight.zerocurrency.io/insight/) WebSocket API (For Transactions)
 * [Cryptopia](https://support.cryptopia.co.nz/csm?id=kb_article&sys_id=40e9c310dbf9130084ed147a3a9619eb) WebSocket API (For ZER Price)
-* [Bitstamp](https://www.bitstamp.net/) Websocket API (For BTC Price)
+* [Bitstamp](https://www.bitstamp.net/api/) Websocket API (For BTC Price)
 
 ### License ###
 
