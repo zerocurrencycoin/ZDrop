@@ -2,7 +2,7 @@
 
 Current version hosted at [**zdrop.zeromachine.io**](http://zdrop.zeromachine.io/)
 
-Realtime Zero transaction visualizer written in HTML/Javascript. See and hear new transactions and blocks as they propagate through the Zero Network.
+Realtime Zero transaction visualizer written in HTML/Javascript. See and hear new transactions as they propagate through the Zero Network.
 
 ### Building ###
 
