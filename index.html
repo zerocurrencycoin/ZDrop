@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Zero Transaction Visualizer</title>
+		<meta name="description" content="Realtime Zero coin transaction visualizer. See and hear new transactions as they occur.">
+		<meta name="keywords" content="Zero,Listen To Zerocoin,Zero coin,transactions,visualizer,trades,blockchain">
+		<link rel="stylesheet" type="text/css" href="jquery.nouislider.custom.css">
+		<link rel="stylesheet" type="text/css" href="engine.css">
+		<link rel="icon" href="favicon.ico?v=2" />
+		<!--[if IE]>
+		<link rel="stylesheet" type="text/css" href="ie.css">
+		<![endif]-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script src="https://js.pusher.com/2.2/pusher.min.js"></script>
+		<script src="bitlisten.min.js" type="text/javascript"></script>
+		<script src="https://insight.zerocurrency.io/socket.io/socket.io.js"></script>
+	</head>
+	<body>
+		<div id="header" class="serif interface" style="background-color: #ffca02 ;background: linear-gradient(rgba(255, 202, 2, 1), rgba(255, 166, 2, 1));-moz-background: linear-gradient(rgba(255, 202, 2, 1), rgba(255, 166, 2, 1));-o-background: linear-gradient(rgba(255, 202, 2, 1), rgba(255, 166, 2, 1));-webkit-background: linear-gradient(rgba(255, 202, 2, 1), rgba(255, 166, 2, 1));">
+			<div id="rateBox">
+				<span id="rate_zero">---</span> <span id="units">ZERO / BTC <sup class='rateButton'> ( by Cryptopia ) </sup></span>	 | 
+				<span id="rate_zero_usd">---</span> <span id="units">USD / ZER</span>						
+			</div>
+			<div style="width: 400px; margin-left: auto; margin-right: auto;">
+				<a href="https://zerocurrency.io/">
+					<img style='float:left' src="https://zerocurrency.io/wp-content/uploads/2018/08/zero-logo-black-white-300x300.png" alt="Zero Currency Logo" width="170" height="170">				
+					<h3 class="zerotitle">Ƶero</h3>
+					<div style="clear: both"></div>
+				</a>
+			</div>
+			<div id="headerInfo">				
+				<p class="subdued">
+					<a href="https://github.com/zerocurrencycoin/ZDrop">Source Code</a>
+				</p>
+			</div>
+			<div id="rateBoxBtc">
+				<span id="rate_btc">---</span> <span id="units">USD / BTC <sup class='rateButton'> ( by Bitstamp ) </sup></span>						
+			</div>
+		</div>
+		<table id="pageSplitter" border="0">
+			<tr><td id="chartCell">
+			<div  id="chartElement" class="contentPanel" style="position: relative;">
+			    <div id="chartHolder"></div>
+				<div class="chartMask"></div>
+				 <a class="boxclose" id="boxclose" style="text-decoration: none;" onclick='hideChart();'>&times;</a>
+			</div>
+			</td>
+			<td>
+			<div id="pageDiv" class="contentPanel" >
+				<div id="bubbleDiv"></div>
+				<div id="overlay">
+					<div id="connectionStatus" class="monospace">
+						<div id="connectionInnerDiv" class="interface">
+							<p>
+								<label>
+									<input id="blockchainCheckBox" type='checkbox' checked="checked" onchange='this.checked ? TransactionSocket.init() : TransactionSocket.close();'>
+									<span id="blockchainStatus"></span></label>
+							</p>
+						</div>
+					</div>
+					<div id="volumeWrapper" class="interface">
+						<div id="volumeControl"></div>
+						<div id="volumeSlider" class="noUiSlider"></div>
+					</div>
+					<div id="soundControls" class="interface">
+						<div id="scalePitch" class="monospace">
+							<p>Select Instrument:
+							<select onchange="Sound.change(parseInt($(this).val(), 10));">
+								<option value="0">Celesta</option>
+								<option value="1">Planet</option>
+								<option value="2">Wikki</option>
+							</select>
+							</p>
+							<br />
+							<p>
+								<label>
+									<input id="scalePitchCheckBox" type='checkbox' checked="checked" onchange='globalScalePitch = this.checked'>
+										Scale pitch with transaction amount<br />(bigger transaction = deeper sound)
+								</label>
+							</p>
+							<p>
+								<label class="disabled">
+								    <input id="showDollarCheckBox" type='checkbox' onchange='globalShowDollar = this.checked' disabled="disabled">
+									Show units in USD instead of BTC
+								</label>
+							</p>
+						</div>
+
+					</div>
+				</div>
+		        <span id="waitingForTransactions">
+		        Waiting for transactions...
+		        </span>
+			</div>
+			</td>
+			</tr>
+		</table>
+		<div id="hideInterface" class="serif" onclick='toggleInterface()'>[ Hide Interface ]</div>
+		<div id="noJavascript">
+			<p>
+				Please enable Javascript, or try a different web browser.
+			</p>
+		</div>
+		<div id="noInternetExplorer" onclick>
+			<p>
+				Sorry, <span style="color: yellow;">no support for Internet Explorer.</span>
+			</p>
+			<p>
+				Try <a href="https://www.google.com/chrome/" target="_blank">Chrome</a>, <a href="http://www.getfirefox.com" target="_blank">Firefox</a> or Safari.
+			</p>
+			<br />
+			<p class="clickSuppress" style="font-size: 0.5em;">
+				<span style="cursor: pointer; text-decoration: underline;"> (Click Here to Suppress this warning.) </span>
+			</p>
+		</div>
+	</body>
+</html>
