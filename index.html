@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ƵDrop</title>
+		<meta name="description" content="Realtime Zero Transaction Visualizer. See and hear new transactions as they occur.">
+		<meta name="keywords" content="Zero,Listen To Zero,Zero Currency,transactions,visualizer,trades,blockchain">
+		<link rel="stylesheet" type="text/css" href="jquery.nouislider.custom.css">
+		<link rel="stylesheet" type="text/css" href="engine.css">
+		<link rel="icon" href="favicon.ico?v=2" />
+		<!--[if IE]>
+		<link rel="stylesheet" type="text/css" href="ie.css">
+		<![endif]-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script src="https://js.pusher.com/2.2/pusher.min.js"></script>
+		<script src="bitlisten.min.js" type="text/javascript"></script>
+		<script src="https://insight.zerocurrency.io/socket.io/socket.io.js"></script>
+	</head>
+	<body>
+	
+		<header>
+		  <div class="header-bg">
+		  	<div class="top-btn">
+		  		<button class="hide-btn" onclick="toggleInterface()">Hide Interface</button>
+		  	</div>
+		  	<div class="main-logo">
+		  		<div class="logo"><img src="images/logo1.png" alt=""></div>
+		  		<div class="logotext"><button class="logo-btn">Real time zero transaction visualizer</button></div>
+		  	</div>
+		  </div>
+		  <div class="header-btm">
+		  	<div class="col-4">
+		  		<p><span id="rate_zero">---</span> <span>ZER / BTC ( Cryptopia )</span></p>
+		  		<p><span id="rate_zero_usd">---</span> <span id="units">USD / ZER</span></p>
+		  	</div>
+		  	<div class="col-4" style="padding: 10px;">
+		  	<p class="btns">
+		  		<a href="https://github.com/zerocurrencycoin/ZDrop" class="serif hide-btn">Source Code</a>
+		  		</p>
+		  	</div>
+		  	<div class="col-4">
+		  		<p class="bitmap"><span id="rate_btc">---</span> <span>USD / BTC ( Bitstamp )</span></p>
+		  	</div>
+		  </div>
+		</header>
+		<table id="pageSplitter" border="0">
+			<tr><td id="chartCell">
+			<div  id="chartElement" class="contentPanel" style="position: relative;">
+			    <div id="chartHolder"></div>
+				<div class="chartMask"></div>
+				 <a class="boxclose" id="boxclose" style="text-decoration: none;" onclick='hideChart();'>&times;</a>
+			</div>
+			</td>
+			<td>
+			<div id="pageDiv" class="contentPanel" >
+				<div id="bubbleDiv"></div>
+				<div id="overlay">
+					<div id="connectionStatus" class="monospace">
+						<div id="connectionInnerDiv" class="interface">
+							<p>
+								<label>
+									<input id="blockchainCheckBox" type='checkbox' checked="checked" onchange='this.checked ? TransactionSocket.init() : TransactionSocket.close();'>
+									<span id="blockchainStatus"></span></label>
+							</p>
+						</div>
+					</div>
+					<div id="volumeWrapper" class="interface">
+						<div id="volumeControl"></div>
+						<div id="volumeSlider" class="noUiSlider"></div>
+					</div>
+					<div id="soundControls" class="interface">
+						<div id="scalePitch" class="monospace">
+							<p>Select Instrument:
+							<select onchange="Sound.change(parseInt($(this).val(), 10));">
+								<option value="0">Celesta</option>
+								<option value="1">Planet</option>
+								<option value="2">Wikki</option>
+							</select>
+							</p>
+							<br />
+							<p>
+								<label>
+									<input id="scalePitchCheckBox" type='checkbox' checked="checked" onchange='globalScalePitch = this.checked'>
+										Scale pitch with transaction amount<br />(bigger transaction = deeper sound)
+								</label>
+							</p>
+							<p>
+								<label class="disabled">
+								    <input id="showDollarCheckBox" type='checkbox' onchange='globalShowDollar = this.checked' disabled="disabled">
+									Show units in USD instead of ZER
+								</label>
+							</p>
+						</div>
+
+					</div>
+				</div>
+		        <span id="waitingForTransactions">
+		        Waiting for transactions...
+		        </span>
+			</div>
+			</td>
+			</tr>
+		</table>
+		<div id="noJavascript">
+			<p>
+				Please enable Javascript, or try a different web browser.
+			</p>
+		</div>
+		<div id="noInternetExplorer" onclick>
+			<p>
+				Sorry, <span style="color: yellow;">no support for Internet Explorer.</span>
+			</p>
+			<p>
+				Try <a href="https://www.google.com/chrome/" target="_blank">Chrome</a>, <a href="http://www.getfirefox.com" target="_blank">Firefox</a> or Safari.
+			</p>
+			<br />
+			<p class="clickSuppress" style="font-size: 0.5em;">
+				<span style="cursor: pointer; text-decoration: underline;"> (Click Here to Suppress this warning.) </span>
+			</p>
+		</div>
+	</body>
+</html>
