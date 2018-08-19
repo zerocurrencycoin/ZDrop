@@ -1,4 +1,4 @@
-## ZDrop - RealTime Transaction Visualizer ##
+## ZDrop - RealTime Transaction Visualizer [Update-1.0] ##
 
 Current version hosted at [**zdrop.zeromachine.io**](https://zdrop.zeromachine.io/)
 
