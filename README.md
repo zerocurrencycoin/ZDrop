@@ -4,6 +4,8 @@ Current version hosted at [**zdrop.zeromachine.io**](https://zdrop.zeromachine.i
 
 Realtime Zero transaction visualizer written in HTML/Javascript. See and hear new transactions as they propagate through the Zero Network.
 
+![alt text](https://github.com/zerocurrencycoin/ZDrop/blob/master/images/ZDrop.png)
+
 ### Building ###
 
 The project is built and ready-to-go. If you change any of the javascript, you will need to re-build the `bitlisten.min.js` file using Grunt. If you haven't used Grunt before, here is a short tutorial:
