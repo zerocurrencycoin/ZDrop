@@ -1,6 +1,6 @@
 ## ZDrop - RealTime Transaction Visualizer ##
 
-Current version hosted at [**zdrop.zeromachine.io**](https://zdrop.zeromachine.io/)
+Current version hosted at [**zdrop.zeromachine.io**](http://zdrop.zeromachine.io/)
 
 Realtime Zero transaction visualizer written in HTML/Javascript. See and hear new transactions as they propagate through the Zero Network.
 
