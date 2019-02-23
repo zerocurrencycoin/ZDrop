@@ -16,27 +16,31 @@
 		<script src="https://insight.zerocurrency.io/socket.io/socket.io.js"></script>
 	</head>
 	<body>
-		<div id="header" class="serif interface" style="background-color: #ffca02 ;background: linear-gradient(rgba(255, 202, 2, 1), rgba(255, 166, 2, 1));-moz-background: linear-gradient(rgba(255, 202, 2, 1), rgba(255, 166, 2, 1));-o-background: linear-gradient(rgba(255, 202, 2, 1), rgba(255, 166, 2, 1));-webkit-background: linear-gradient(rgba(255, 202, 2, 1), rgba(255, 166, 2, 1));">
-			<div id="rateBox">
-				<span id="rate_zero">---</span> <span id="units">ZER / BTC <sup class='rateButton'> (CoinMarketCap) </sup></span>	 | 
-				<span id="rate_zero_usd">---</span> <span id="units">USD / ZER</span>						
-			</div>
-			<div style="width: 400px; margin-left: auto; margin-right: auto;">
-				<a href="https://zerocurrency.io/">
-					<img style='float:left' src="https://zerocurrency.io/wp-content/uploads/2018/08/zero-logo-black-white-300x300.png" alt="Zero Currency Logo" width="170" height="170">				
-					<h3 class="zerotitle">Ƶero</h3>
-					<div style="clear: both"></div>
-				</a>
-			</div>
-			<div id="headerInfo">				
-				<p class="subdued">
-					<a href="https://github.com/zerocurrencycoin/ZDrop">ƵDrop Source Code</a>
-				</p>
-			</div>
-			<div id="rateBoxBtc">
-				<span id="rate_btc">---</span> <span id="units">USD / BTC <sup class='rateButton'> (Bitstamp) </sup></span>						
-			</div>
-		</div>
+		<header>
+		  <div class="header-bg">
+		  	<div class="top-btn">
+		  		<button class="hide-btn" onclick="toggleInterface()">Hide Interface</button>
+		  	</div>
+		  	<div class="main-logo">
+		  		<div class="logo"><img src="images/logo1.png" alt=""></div>
+		  		<div class="logotext"><button class="logo-btn">Real Time Zero Transaction Visualizer</button></div>
+		  	</div>
+		  </div>
+		  <div class="header-btm">
+		  	<div class="col-4">
+		  		<p><span id="rate_zero">---</span> <span>ZER/BTC (Cryptopia)</span></p>
+		  		<p><span id="rate_zero_usd">---</span> <span id="units">USD/ZER</span></p>
+		  	</div>
+		  	<div class="col-4" style="padding: 10px;">
+		  	<p class="btns">
+		  		<a href="https://github.com/zerocurrencycoin/ZDrop" class="serif hide-btn">Source Code</a>
+		  		</p>
+		  	</div>
+		  	<div class="col-4">
+		  		<p class="bitmap"><span id="rate_btc">---</span> <span>USD/BTC (Bitstamp)</span></p>
+		  	</div>
+		  </div>
+		</header>
 		<table id="pageSplitter" border="0">
 			<tr><td id="chartCell">
 			<div  id="chartElement" class="contentPanel" style="position: relative;">
