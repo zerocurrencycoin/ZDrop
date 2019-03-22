@@ -26,7 +26,7 @@ TransactionSocket.init = function() {
 		TransactionSocket.connection.close();
 
 	if ('WebSocket' in window) {		
-		var connection = io("insight.zerocurrency.io:3001");		
+		var connection = io("insight.zeromachine.io");		
 		TransactionSocket.connection = connection;
 
 //* inserted
