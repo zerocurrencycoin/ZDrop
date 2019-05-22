@@ -19,7 +19,7 @@ rateboxGetRate = function() {
 	$.getJSON("https://blockchain.info/ticker?cors=true", function(data) {
         setGlobalRate(data.USD.last,'btc',2);
     });
-    $.getJSON('https://api.coinmarketcap.com/v1/ticker/zero/?convert=BTC', function(data) {
+    $.getJSON('https://api.crex24.com/CryptoExchangeService/BotPublic/ReturnTicker?request=[NamePairs=BTC_ZER]', function(data) {
         setGlobalRate(data.Data.LastPrice,'zero',8);
         globalRateZerToBtc = data.Data.LastPrice;
     }); 
@@ -33,7 +33,7 @@ $(document).ready(function() {
 
     //cryptopia API query 
     setInterval(function(){
-        $.getJSON('https://api.coinmarketcap.com/v1/ticker/zero/?convert=BTC', function(data) {
+        $.getJSON('https://api.crex24.com/CryptoExchangeService/BotPublic/ReturnTicker?request=[NamePairs=BTC_ZER]', function(data) {
             setGlobalRate(data.Data.LastPrice,'zero','8');
             globalRateZerToBtc = data.Data.LastPrice;
             if (rateboxTimeout) clearTimeout(rateboxTimeout);
